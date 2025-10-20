@@ -38,19 +38,19 @@ def get_sentence():
 
 def calculate_frequencies(sentence):
     
-    # Remove the ending punctuation (.!?)
+    
     sentence = sentence[:-1]
 
-    # Split the sentence into words
+    
     words_in_sentence = sentence.split()
 
-    # Create empty lists
+    
     words = []
     frequencies = []
 
-    # Count word frequencies
+    
     for word in words_in_sentence:
-        word = word.lower()  # make all words lowercase
+        word = word.lower()  
         if word in words:
             index = words.index(word)
             frequencies[index] += 1
@@ -75,6 +75,6 @@ def main():
     print_frequencies(words, frequencies)
 
 
-# Only run main if this file is executed directly
+
 if __name__ == "__main__":
     main()
