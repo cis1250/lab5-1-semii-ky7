@@ -24,3 +24,57 @@ def is_sentence(text):
         return False
 
     return True
+
+
+def get_sentence():
+    
+    while True:
+        sentence = input("Enter a sentence: ")
+        if is_sentence(sentence):
+            return sentence
+        else:
+            print("Please enter a valid sentence (start with a capital and end with ., !, or ?).")
+
+
+def calculate_frequencies(sentence):
+    
+    # Remove the ending punctuation (.!?)
+    sentence = sentence[:-1]
+
+    # Split the sentence into words
+    words_in_sentence = sentence.split()
+
+    # Create empty lists
+    words = []
+    frequencies = []
+
+    # Count word frequencies
+    for word in words_in_sentence:
+        word = word.lower()  # make all words lowercase
+        if word in words:
+            index = words.index(word)
+            frequencies[index] += 1
+        else:
+            words.append(word)
+            frequencies.append(1)
+
+    return words, frequencies
+
+
+def print_frequencies(words, frequencies):
+    
+    print("\nWord Frequencies:")
+    for i in range(len(words)):
+        print(words[i], ":", frequencies[i])
+
+
+def main():
+   
+    sentence = get_sentence()
+    words, frequencies = calculate_frequencies(sentence)
+    print_frequencies(words, frequencies)
+
+
+# Only run main if this file is executed directly
+if __name__ == "__main__":
+    main()
